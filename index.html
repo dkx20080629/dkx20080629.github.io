@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="main.css">
+        <script src="main.js"></script>
+        <title>deep learning</title>
+    </head>
+    <body>
+        <h1>Deeping Learning With YOLOv8 <small>by <a href="http://127.0.0.1:5500/author.html">Ken</a></small></h1> 
+        <p>This website will show you how to train yolov11 model on python with cuda step by step</p>
+        <p>Hope you enjoy!</p>
+        <br>
+        <h2>Step 1: software setup</h2>
+            <p>- Install <a href="https://docs.ultralytics.com/quickstart/#install-ultralytics">Ultralytics</a></p>
+            <code>pip install ultralytics</code>
+            <p>- Install <a href="https://pytorch.org/get-started/locally/">PyTorch</a> (If you have GPU from NVIDIA)</p>
+            <code>pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124</code>
+            <p>If you use Apple Sillicon, wait for the instruction</p>
+            <p>(more detail please check the website)</p>
+            <br>
+        <h2>Step 2: find a dataset</h2>
+            <p><a href="https://universe.roboflow.com/">universe roboflow</a>&nbspis a flexible, open-source platform that combines the power of artificial intelligence with robotics. It simplifies complex tasks like motion planning, object detection, and sensor integration.You can also find the datatsets on the website.</p>
+            <p>- Choose a dataset or <a href="index2.html">make your own dataset</a> (few things to follow)</p>
+            <p>&emsp;&emsp;• Check if the data fits your goal such as <b>Relevance</b>, <b>Quality</b>, <b>Size</b>, etc.</p>
+            <p>&emsp;&emsp;• Check the dataset description</p>
+            <p>&emsp;&emsp;• Check if datset support the model</p>
+            <p>- Download the dataset</p>
+            <p>- Put dataset in a folder<p>
+                <br>
+        <h2>Step 3: start training</h2>
+            <p>- Creat a python file in the folder</p>
+            <p>- program python code</p>
+            <p>&emsp;Code example:</p>
+            <div style="
+            background-color: #1e1e2f; 
+            color: #ffffff; 
+            font-family: monospace; 
+            font-size: 16px; 
+            padding: 20px; 
+            border-radius: 8px; 
+            position: relative; 
+            width: fit-content;
+            margin-left: 25%;">
+                <div style="
+                content: ''; 
+                position: absolute; 
+                top: 10px; 
+                left: 10px; 
+                height: 12px; 
+                width: 12px; 
+                border-radius: 50%; 
+                background-color: #ff5f56; 
+                box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;">
+                </div>
+            <br>
+            from ultralytics import YOLO<br><br>
+            model = YOLO(r"yolov8n.pt") #use your .pt file<br>
+            dataset = "notehub"<br>
+            model.to("cuda")<br>
+            if __name__ == '__main__':<br>
+            &emsp;&emsp;&emsp;&emsp;results = model.train(data="coco8.yaml", epochs=2000, imgsz=640, resume=True)
+          </div>
+            <br>
+        <h2>Step 4: transform the model</h2>
+        <p>- You will get <p1>best.pt</p1> and <p1>last.pt</p1> after training</p>
+        <p>- Choose the <p1>best.pt</p1> file transform to <p1>ncnn<p1></p>
+            <p>&emsp;Code example:</p>
+            <div style="
+            background-color: #1e1e2f; 
+            color: #ffffff; 
+            font-family: monospace; 
+            font-size: 16px; 
+            padding: 20px; 
+            border-radius: 8px; 
+            position: relative; 
+            width: fit-content;
+            margin-left: 25%;">
+                <div style="
+                content: ''; 
+                position: absolute; 
+                top: 10px; 
+                left: 10px; 
+                height: 12px; 
+                width: 12px; 
+                border-radius: 50%; 
+                background-color: #ff5f56; 
+                box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;">
+                </div>
+            <br>
+                from ultralytics import YOLO<br><br>
+                # Load your trained model<br>
+                model = YOLO('FRC.pt')<br>
+                model.export(format="ncnn")<br>
+          </div>
+          <p>- After that you will get the folder like this:</p>
+        <div class="image-container">
+            <img src="image\htmlmaimn.png"/>
+        </div>
+        <br> 
+        <h2>Step 5: detection</h2>
+        <p>- run the detection code on python</p>
+        <p>&emsp;&emsp;<a href="https://github.com/Justmore5mins/YOLO-Detector/blob/GUI/detect.py">code example</a></p>
+        
+    </body>
+    
+</html>
