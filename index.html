@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Deeping Learning With YOLOv8 <small>by <a href="http://127.0.0.1:5500/author.html">Ken</a></small></h1> 
-        <p>This website will show you how to train yolov11 model on python with cuda step by step</p>
+        <p>This website will show you how to train yolov8 model on python with cuda step by step</p>
         <p>Hope you enjoy!</p>
         <br>
         <h2>Step 1: software setup</h2>
@@ -61,6 +61,10 @@
             if __name__ == '__main__':<br>
             &emsp;&emsp;&emsp;&emsp;results = model.train(data="coco8.yaml", epochs=2000, imgsz=640, resume=True)
           </div>
+          <p>start training:</p>
+          <div class="image-container">
+            <img src="image\training.png" width="1000" height=auto/>
+        </div>
             <br>
         <h2>Step 4: transform the model</h2>
         <p>- You will get <p1>best.pt</p1> and <p1>last.pt</p1> after training</p>
@@ -101,7 +105,11 @@
         <h2>Step 5: detection</h2>
         <p>- run the detection code on python</p>
         <p>&emsp;&emsp;<a href="https://github.com/Justmore5mins/YOLO-Detector/blob/GUI/detect.py">code example</a></p>
-        
+        <br>
+        <hr>
+        <br>
+        <h2>overfitting & underfitting</h2>
+        <p>In machine learning, overfitting occurs when an algorithm fits too closely or even exactly to its training data, resulting in a model that can’t make accurate predictions or conclusions from any data other than the training data. <p>
     </body>
     
 </html>
