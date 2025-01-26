@@ -7,8 +7,8 @@
         <title>deep learning</title>
     </head>
     <body>
-        <h1>Deeping Learning With YOLOv8 <small>by <a href="http://127.0.0.1:5500/author.html">Ken</a></small></h1> 
-        <p>This website will show you how to train yolov8 model on python with cuda step by step</p>
+        <h1>Deeping Learning With YOLOv11 <small>by <a href="author.html">Ken</a></small></h1> 
+        <p>This website will show you how to train yolov11 model on python with cuda step by step</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         <p>Hope you enjoy!</p>
         <br>
         <h2>Step 1: software setup</h2>
@@ -54,13 +54,15 @@
                 box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;">
                 </div>
             <br>
-            from ultralytics import YOLO<br><br>
-            model = YOLO(r"yolov8n.pt") #use your .pt file<br>
-            dataset = "notehub"<br>
+            from ultralytics import YOLO<br>
+            from torch import cuda<br>
+            model = YOLO(r"yolo11n.pt")<br>
             model.to("cuda")<br>
             if __name__ == '__main__':<br>
             &emsp;&emsp;&emsp;&emsp;results = model.train(data="coco8.yaml", epochs=2000, imgsz=640, resume=True)
           </div>
+          <p>*If you want to improve you model with extra dataset use your .pt model otherwise choose yolo model like example</p>
+          <p>*Use your own .yaml file in the dataset</p>
           <p>start training:</p>
           <div class="image-container">
             <img src="image\training.png" width="1000" height=auto/>
@@ -92,11 +94,11 @@
                 box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;">
                 </div>
             <br>
-                from ultralytics import YOLO<br><br>
-                # Load your trained model<br>
-                model = YOLO('FRC.pt')<br>
+                from ultralytics import YOLO<br>
+                model = YOLO('best.pt')<br>
                 model.export(format="ncnn")<br>
           </div>
+          <p>*Use your .pt model</p>
           <p>- After that you will get the folder like this:</p>
         <div class="image-container">
             <img src="image\htmlmaimn.png"/>
@@ -108,11 +110,21 @@
         <br>
         <hr>
         <br>
-        <h2>overfitting & underfitting</h2>
-        <p>In machine learning, overfitting occurs when an algorithm fits too closely or even exactly to its training data, resulting in a model that can’t make accurate predictions or conclusions from any data other than the training data. <p>
+        <h2>Overfitting & Underfitting</h2>
+        <p>In machine learning, overfitting occurs when an algorithm fits too closely or even exactly to its training data, 
+            resulting in a model that can’t make accurate predictions or conclusions from any data other than the training data. <p>
         <div class="image-container">
             <img src="image\overfitting_example.png"/>
         </div>
+        <p>
+            A model is trained to minimize a loss function <b>L</b>, which measures the difference between 
+            the predicted values (<span class="formula">y&#770;</span>) and the actual values (<span class="formula">y</span>) in the dataset. 
+            For example, in regression, a common loss function is the <b>Mean Squared Error (MSE)</b>:
+        </p>   
+        <div class="image-container">
+            <img src="image\loss function.png"/>
+        </div>     
+        <p>Fun Fact : human brain have the same problem(overfitting & underfitting) <br>- The Allegory of the Cave<p>
         </body>
     
 </html>

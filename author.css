@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: rgb(44, 44, 44);
 }
 h {
     color: white;
@@ -10,5 +10,5 @@ h {
 p {
     color: white;
     font-size: 40px;
-    font-family: cursive;
+    font-family: sans-serif;
 }
