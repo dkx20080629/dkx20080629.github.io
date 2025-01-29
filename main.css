@@ -54,6 +54,34 @@ pre {
     display: block;
     margin: 20px auto; /* Adds spacing and centers the image */
 }
-p1 {
+.p1 {
     color: rgb(237, 101, 101);
 }
+
+.code-container {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: fit-content;
+    margin-left: 25%;
+}
+
+.window-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #ff5f56;
+    box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;
+}
+
+.code-content {
+    margin-top: 20px;
+}
+

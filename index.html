@@ -7,8 +7,8 @@
         <title>deep learning</title>
     </head>
     <body>
-        <h1>Deeping Learning With YOLOv8 <small>by <a href="author.html">Ken</a></small></h1> 
-        <p>This website will show you how to train yolov8 model on python with cuda step by step</p>
+        <h1>Deeping Learning With YOLOv11 <small>by <a href="author.html">Ken</a></small></h1> 
+        <p>This website will show you how to train yolov11 model on python with cuda step by step</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
         <p>Hope you enjoy!</p>
         <br>
         <h2>Step 1: software setup</h2>
@@ -27,46 +27,35 @@
             <p>&emsp;&emsp;• Check if datset support the model</p>
             <p>- Download the dataset</p>
             <p>- Put dataset in a folder<p>
-                <br>
-        <h2>Step 3: start training</h2>
-            <p>- Creat a python file in the folder</p>
-            <p>- program python code</p>
-            <p>&emsp;Code example:</p>
-            <div style="
-            background-color: #1e1e2f; 
-            color: #ffffff; 
-            font-family: monospace; 
-            font-size: 16px; 
-            padding: 20px; 
-            border-radius: 8px; 
-            position: relative; 
-            width: fit-content;
-            margin-left: 25%;">
-                <div style="
-                content: ''; 
-                position: absolute; 
-                top: 10px; 
-                left: 10px; 
-                height: 12px; 
-                width: 12px; 
-                border-radius: 50%; 
-                background-color: #ff5f56; 
-                box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;">
-                </div>
             <br>
-            from ultralytics import YOLO<br><br>
-            model = YOLO(r"yolov8n.pt") #use your .pt file<br>
-            dataset = "notehub"<br>
-            model.to("cuda")<br>
-            if __name__ == '__main__':<br>
-            &emsp;&emsp;&emsp;&emsp;results = model.train(data="coco8.yaml", epochs=2000, imgsz=640, resume=True)
-          </div>
+        <h2>Step 3: environment setup</h2>
+            <p>- Install venv (If you don't have)</p>
+            <code>pip install virtualenv</code>
+            <p>- Create venv environment</p>
+            <p>&emsp;&emsp;• Linux / macOS</p>
+            <code>source ./venv/bin/activate</code>
+            <br>
+        <h2>Step 4: start training</h2>
+            <p>&emsp;Code example:</p>
+            <div class="code-container">
+                <div class="window-controls"></div>
+                <div class="code-content">
+                    from ultralytics import YOLO<br>
+                    from torch import cuda<br>
+                    model = YOLO(r"yolo11n.pt")<br>
+                    model.to("cuda")<br>
+                    if __name__ == '__main__':<br>
+                    &emsp;&emsp;&emsp;&emsp;results = model.train(data="coco8.yaml", epochs=2000, imgsz=640, resume=True)
+                </div>
+            </div>
+          <p>*If you want to improve you model with extra dataset use your .pt model otherwise choose yolo model like example</p>
+          <p>*Use your own .yaml file in the dataset</p>
           <p>start training:</p>
           <div class="image-container">
             <img src="image\training.png" width="1000" height=auto/>
         </div>
             <br>
-        <h2>Step 4: transform the model</h2>
+        <h2>Step 5: transform the model</h2>
         <p>- You will get <p1>best.pt</p1> and <p1>last.pt</p1> after training</p>
         <p>- Choose the <p1>best.pt</p1> file transform to <p1>ncnn<p1></p>
             <p>&emsp;Code example:</p>
@@ -92,17 +81,17 @@
                 box-shadow: 20px 0 #ffbd2e, 40px 0 #27c93f;">
                 </div>
             <br>
-                from ultralytics import YOLO<br><br>
-                # Load your trained model<br>
-                model = YOLO('FRC.pt')<br>
+                from ultralytics import YOLO<br>
+                model = YOLO('best.pt')<br>
                 model.export(format="ncnn")<br>
           </div>
+          <p>*Use your .pt model</p>
           <p>- After that you will get the folder like this:</p>
         <div class="image-container">
             <img src="image\htmlmaimn.png"/>
         </div>
         <br> 
-        <h2>Step 5: detection</h2>
+        <h2>Step 6: detection</h2>
         <p>- run the detection code on python</p>
         <p>&emsp;&emsp;<a href="https://github.com/Justmore5mins/YOLO-Detector/blob/GUI/detect.py">code example</a></p>
         <br>
